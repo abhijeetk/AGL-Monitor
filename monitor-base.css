@@ -1,0 +1,198 @@
+/*
+ * Copyright (C) 2017, 2018 "IoT.bzh"
+ * Author: José Bollo <jose.bollo@iot.bzh>
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/*******************************************************************/
+/* top */
+body {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+}
+
+body.on #params, body.on #connect, body.off #disconnect { display: none; }
+
+/*******************************************************************/
+/* utilities */
+.-flex-h {
+	display: flex;
+	flex-flow: row nowrap;
+}
+.-flex-v {
+	display: flex;
+	flex-flow: column nowrap;
+}
+.-flex-v > .-flex-fill {
+	height: 100%;
+}
+.-flex-h > .-flex-fill {
+	width: 100%;
+}
+.-box-out {
+	position: relative;
+}
+.-box-in {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	overflow: auto;
+}
+
+/*******************************************************************/
+/* head */
+#head {
+	position: relative;
+}
+
+#logo {
+	float: left;
+}
+
+#connected {
+	float: right;
+}
+
+/*******************************************************************/
+/* connection area */
+
+/*******************************************************************/
+/* main area */
+
+#work { overflow-x: auto; }
+#controls, #menu { flex: 1; }
+#middle { flex: 3; }
+#controls { min-width: 300px; }
+#menu { min-width: 200px; }
+
+/*******************************************************************/
+/* setting for apis */
+
+/*******************************************************************/
+/* setting of verbs */
+
+/*******************************************************************/
+/* setting for traces */
+
+#apis .event, #apis .global {
+	display: none;
+}
+
+/*******************************************************************/
+/* tiny button */
+
+/*******************************************************************/
+/* display of logmsg */
+
+#experts.closed ~ #expert-pane { visibility: hidden; }
+
+/*******************************************************************/
+/* close box */
+.close {
+	float: right;
+}
+
+/*******************************************************************/
+/* open / close */
+.opclo { float: right; } 
+.api > .opclo { float: left; }
+
+.closed > .closedoff { visibility: hidden; display: none; } 
+
+.opened > .closedon { visibility: hidden; display: none; }
+
+/*******************************************************************/
+/* setting for traceevents */
+
+.traceevent {
+	position: relative;
+}
+
+.traceevent.closed {
+	overflow: hidden;
+}
+
+.traceevent .time {
+	float: right;
+}
+
+.traceevent.closed:hover {
+	overflow: visible;
+	z-index: 100;
+	position: relative;
+}
+
+.traceevent.closed:not(:hover) .content {
+	display: none;
+}
+
+.traceevent.closed:hover .content {
+	display: block;
+	background: inherit;
+	overflow: hidden;
+	left: 40%;
+	max-width: 55%;
+	position: absolute;
+	animation-name: display-block;
+	animation-duration: 2s;
+	-webkit-animation-name: display-block;
+	-webkit-animation-duration: 2s;
+}
+
+@-webkit-keyframes display-block {
+	from { opacity: 0; }
+	50% { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@keyframes display-block {
+	from { opacity: 0; }
+	50% { opacity: 0; }
+	to { opacity: 1; }
+}
+
+.traceevent .content {
+	clear: both;
+	overflow-x: auto;
+}
+
+.traceevent, .x-button {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.traceevent table.object tr td:nth-child(2) {
+	-webkit-user-select: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
+}
+
+/*******************************************************************/
+/* json format */
+
+/*******************************************************************/
+/* clear fix */
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
